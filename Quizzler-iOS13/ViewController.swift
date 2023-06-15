@@ -50,7 +50,10 @@ class ViewController: UIViewController {
         }
         
         questionIndex += 1
-        updateQuestion()
+        
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { timer in
+            self.updateQuestion()
+        }
     }
     
     func updateQuestion() {
@@ -60,11 +63,10 @@ class ViewController: UIViewController {
         
         questionLabel.text = quiz[questionIndex].text
         
-        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { timer in
-            self.trueButton.backgroundColor = UIColor.clear
-            self.falseButton.backgroundColor = UIColor.clear
-            timer.invalidate()
-        }
+        self.trueButton.backgroundColor = UIColor.clear
+        self.falseButton.backgroundColor = UIColor.clear
+        
+        progressBar.progress = (Float(questionIndex) + 1) / Float(quiz.count)
     }
     
     func validateAnswer(answer: String) -> Bool {
