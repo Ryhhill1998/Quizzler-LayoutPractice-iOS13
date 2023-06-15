@@ -25,6 +25,7 @@ struct QuizBrain {
     ]
     
     var questionIndex = 0
+    var userScore = 0
     
     func validateAnswer(answer: String) -> Bool {
         return quiz[questionIndex].answer == answer
@@ -41,8 +42,17 @@ struct QuizBrain {
     mutating func getNextQuestion() {
         if questionIndex == quiz.count - 1 {
             questionIndex = 0
+            userScore = 0
         } else {
             questionIndex += 1
         }
+    }
+    
+    mutating func increaseUserScore() {
+        userScore += 1
+    }
+    
+    func getUserScore() -> Int {
+        return userScore
     }
 }
