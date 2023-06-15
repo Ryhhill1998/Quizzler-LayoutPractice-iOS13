@@ -29,4 +29,20 @@ struct QuizBrain {
     func validateAnswer(answer: String) -> Bool {
         return quiz[questionIndex].answer == answer
     }
+    
+    func getQuestionText() -> String {
+        return quiz[questionIndex].text
+    }
+    
+    func getProgress() -> Float {
+        return Float(questionIndex + 1) / Float(quiz.count)
+    }
+    
+    mutating func getNextQuestion() {
+        if questionIndex == quiz.count - 1 {
+            questionIndex = 0
+        } else {
+            questionIndex += 1
+        }
+    }
 }

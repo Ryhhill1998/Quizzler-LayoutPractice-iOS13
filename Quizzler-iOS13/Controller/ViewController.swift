@@ -19,37 +19,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateQuestion()
+        updateUI()
     }
     
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let answer = sender.currentTitle!
+        let answerIsCorrect = quizBrain.validateAnswer(answer: answer)
         
-        if quizBrain.validateAnswer(answer: answer) {
-            sender.backgroundColor = UIColor.green
-        } else {
-            sender.backgroundColor = UIColor.red
-        }
-        
-        questionIndex += 1
+        sender.backgroundColor = answerIsCorrect ? UIColor.green : UIColor.red
         
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { timer in
-            self.updateQuestion()
+            self.updateUI()
         }
     }
     
-    func updateQuestion() {
-        if questionIndex == quiz.count {
-            questionIndex = 0
-        }
-        
-        questionLabel.text = quiz[questionIndex].text
+    func updateUI() {
+        questionLabel.text = quizBrain.getQuestionText()
+        progressBar.progress = quizBrain.getProgress()
         
         self.trueButton.backgroundColor = UIColor.clear
         self.falseButton.backgroundColor = UIColor.clear
-        
-        progressBar.progress = (Float(questionIndex) + 1) / Float(quiz.count)
     }
 }
 
