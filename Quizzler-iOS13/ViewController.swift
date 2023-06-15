@@ -17,28 +17,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     
-    let questions = [
-        "4 + 2 = 6?",
-        "5 - 3 > 1?",
-        "3 + 8 < 10?"
+    let quiz = [
+        ["question": "4 + 2 = 6?", "answer": "True"],
+        ["question": "5 - 3 > 1?", "answer": "True"],
+        ["question": "3 + 8 < 10?", "answer": "False"]
     ]
     
-    var currentQuestion = 0
+    var questionIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateQuestionText()
     }
-
+    
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
-        currentQuestion += 1
+        let answer = sender.currentTitle!
+        print(answer)
+        print("Answer correct: \(validateAnswer(answer: answer))")
+        questionIndex += 1
         updateQuestionText()
     }
     
     func updateQuestionText() {
-        questionLabel.text = questions[currentQuestion]
+        questionLabel.text = quiz[questionIndex]["question"]
+    }
+    
+    func validateAnswer(answer: String) -> Bool {
+        return quiz[questionIndex]["answer"] == answer
     }
 }
 
