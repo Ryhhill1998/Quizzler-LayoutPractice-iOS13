@@ -20,45 +20,60 @@
                                 <rect key="frame" x="0.0" y="794" width="414" height="102"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="SZJ-bT-Bwq">
-                                <rect key="frame" x="16" y="0.0" width="382" height="862"/>
+                                <rect key="frame" x="16" y="48" width="382" height="814"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-li-mhO">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="655.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-li-mhO">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="607.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVw-Hl-IRe">
-                                        <rect key="frame" x="0.0" y="678.5" width="382" height="68"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVw-Hl-IRe">
+                                        <rect key="frame" x="0.0" y="630.5" width="382" height="68"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="True" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eql-zM-F3t"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbn-vQ-GyC">
-                                        <rect key="frame" x="0.0" y="769.5" width="382" height="68"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbn-vQ-GyC">
+                                        <rect key="frame" x="0.0" y="721.5" width="382" height="68"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="False" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1TN-Hz-Fnm"/>
+                                        </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
-                                        <rect key="frame" x="0.0" y="860.5" width="382" height="2.5"/>
+                                        <rect key="frame" x="0.0" y="812.5" width="382" height="2.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.2770131528" green="0.3800790906" blue="0.57570761439999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" red="1" green="0.45854175089999999" blue="0.6605013609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tbn-vQ-GyC" secondAttribute="trailing" id="AJg-s1-hZD"/>
+                                    <constraint firstItem="rSI-li-mhO" firstAttribute="leading" secondItem="SZJ-bT-Bwq" secondAttribute="leading" id="EkO-fb-LDg"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSI-li-mhO" secondAttribute="trailing" id="K1x-cQ-6Rc"/>
+                                    <constraint firstAttribute="trailing" secondItem="oVw-Hl-IRe" secondAttribute="trailing" id="S0x-2u-D0Z"/>
+                                    <constraint firstItem="tbn-vQ-GyC" firstAttribute="leading" secondItem="SZJ-bT-Bwq" secondAttribute="leading" id="Xv1-aZ-7RR"/>
+                                    <constraint firstItem="oVw-Hl-IRe" firstAttribute="leading" secondItem="SZJ-bT-Bwq" secondAttribute="leading" id="ZUU-XD-vVn"/>
+                                    <constraint firstItem="rSI-li-mhO" firstAttribute="top" secondItem="SZJ-bT-Bwq" secondAttribute="top" id="h1R-W3-f9h"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SZJ-bT-Bwq" secondAttribute="trailing" constant="16" id="HBc-U4-y5X"/>
-                            <constraint firstItem="SZJ-bT-Bwq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NIH-Dd-AnX"/>
+                            <constraint firstItem="SZJ-bT-Bwq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NIH-Dd-AnX"/>
                             <constraint firstAttribute="bottom" secondItem="eGL-jB-Wwb" secondAttribute="bottom" id="TXF-MX-mTt"/>
                             <constraint firstItem="SZJ-bT-Bwq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eOt-hC-Af1"/>
                             <constraint firstAttribute="trailing" secondItem="eGL-jB-Wwb" secondAttribute="trailing" id="hj2-eg-u5R"/>
@@ -66,6 +81,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SZJ-bT-Bwq" secondAttribute="bottom" id="z3A-iW-zRl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="falseButton" destination="tbn-vQ-GyC" id="xLt-Da-kVL"/>
+                        <outlet property="progressBar" destination="TXm-qh-7Xg" id="pAu-0V-2wj"/>
+                        <outlet property="questionLabel" destination="rSI-li-mhO" id="OJN-bv-cTW"/>
+                        <outlet property="trueButton" destination="oVw-Hl-IRe" id="yOj-oT-G0g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,11 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var trueButton: UIButton!
+    
+    let questions = [
+        "4 + 2 = 6?",
+        "5 - 3 > 1?",
+        "3 + 8 < 10?"
+    ]
+    
+    var currentQuestion = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateQuestionText()
     }
 
-
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+        currentQuestion += 1
+        updateQuestionText()
+    }
+    
+    func updateQuestionText() {
+        questionLabel.text = questions[currentQuestion]
+    }
 }
 
