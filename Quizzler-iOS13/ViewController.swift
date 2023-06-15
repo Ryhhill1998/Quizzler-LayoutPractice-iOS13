@@ -43,6 +43,12 @@ class ViewController: UIViewController {
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let answer = sender.currentTitle!
         
+        if validateAnswer(answer: answer) {
+            sender.backgroundColor = UIColor.green
+        } else {
+            sender.backgroundColor = UIColor.red
+        }
+        
         questionIndex += 1
         updateQuestion()
     }
@@ -53,6 +59,12 @@ class ViewController: UIViewController {
         }
         
         questionLabel.text = quiz[questionIndex].text
+        
+        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { timer in
+            self.trueButton.backgroundColor = UIColor.clear
+            self.falseButton.backgroundColor = UIColor.clear
+            timer.invalidate()
+        }
     }
     
     func validateAnswer(answer: String) -> Bool {
