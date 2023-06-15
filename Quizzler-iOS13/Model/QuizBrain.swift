@@ -1,22 +1,14 @@
 //
-//  ViewController.swift
+//  QuizBrain.swift
 //  Quizzler-iOS13
 //
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
+//  Created by Ryan Henzell-Hill on 15/06/2023.
+//  Copyright © 2023 The App Brewery. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var questionLabel: UILabel!
-    
-    @IBOutlet weak var progressBar: UIProgressView!
-    
-    @IBOutlet weak var falseButton: UIButton!
-    @IBOutlet weak var trueButton: UIButton!
-    
+struct QuizBrain {
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
         Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -34,43 +26,7 @@ class ViewController: UIViewController {
     
     var questionIndex = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateQuestion()
-    }
-    
-    
-    @IBAction func answerButtonPressed(_ sender: UIButton) {
-        let answer = sender.currentTitle!
-        
-        if validateAnswer(answer: answer) {
-            sender.backgroundColor = UIColor.green
-        } else {
-            sender.backgroundColor = UIColor.red
-        }
-        
-        questionIndex += 1
-        
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { timer in
-            self.updateQuestion()
-        }
-    }
-    
-    func updateQuestion() {
-        if questionIndex == quiz.count {
-            questionIndex = 0
-        }
-        
-        questionLabel.text = quiz[questionIndex].text
-        
-        self.trueButton.backgroundColor = UIColor.clear
-        self.falseButton.backgroundColor = UIColor.clear
-        
-        progressBar.progress = (Float(questionIndex) + 1) / Float(quiz.count)
-    }
-    
     func validateAnswer(answer: String) -> Bool {
         return quiz[questionIndex].answer == answer
     }
 }
-
